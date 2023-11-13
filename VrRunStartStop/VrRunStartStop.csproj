@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>True</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <ApplicationIcon>resources\logo.ico</ApplicationIcon>
     <StartupObject>VrRunStartStop.Program</StartupObject>
   </PropertyGroup>
@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="app.vrmanifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="examples\restart_voicemeeter_audio_engine.cmd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

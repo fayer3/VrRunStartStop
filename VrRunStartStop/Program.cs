@@ -126,10 +126,10 @@ namespace VrRunStartStop
                 LogUtils.WriteLine("OpenVR init success");
 
                 // Add app manifest and set auto-launch
-                var appKey = "boll7708.openvrstartup";
+                var appKey = "fayer3.VrRunStartStop";
                 if (!OpenVR.Applications.IsApplicationInstalled(appKey))
                 {
-                    var manifestError = OpenVR.Applications.AddApplicationManifest(Path.GetFullPath("./app.vrmanifest"), false);
+                    var manifestError = OpenVR.Applications.AddApplicationManifest(Path.GetFullPath(AppContext.BaseDirectory + "./app.vrmanifest"), false);
                     if (manifestError == EVRApplicationError.None) LogUtils.WriteLine("Successfully installed app manifest");
                     else LogUtils.WriteLine($"Error: Failed to add app manifest: {Enum.GetName(typeof(EVRApplicationError), manifestError)}");
 

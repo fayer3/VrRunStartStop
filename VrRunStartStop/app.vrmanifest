@@ -1,14 +1,14 @@
 {
 	"applications": [
 		{
-			"app_key": "boll7708.openvrstartup",
+			"app_key": "fayer3.VrRunStartStop",
 			"launch_type": "binary",
-			"binary_path_windows": "OpenVRStartup.exe",
+			"binary_path_windows": "VrRunStartStop.exe",
 			"is_dashboard_overlay": true,
 			"strings": {
 				"en_us": {
-					"name": "OpenVRStartup",
-					"description": "Automatically execute scripts on boot."
+					"name": "VrRunStartStop",
+					"description": "Automatically execute scripts on start and stop of VR."
 				}
 			}
 		}
