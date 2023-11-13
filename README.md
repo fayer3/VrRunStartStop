@@ -1,5 +1,8 @@
 # OpenVRStartup
-Automatically run command files on SteamVR startup and/or shutdown, download the latest release [here](https://github.com/BOLL7708/OpenVRStartup/releases).
+Automatically run command files on SteamVR startup and/or shutdown, download the latest release [here](https://github.com/fayer3/VrRunStartStop/releases).
+
+Fork of [OpenVRStartup](https://github.com/BOLL7708/OpenVRStartup)
+changes the app to hide in a system tray, instead of opening a console window
 
 # Usage
 1. Decompress the release archive to a folder on disk.
