@@ -14,3 +14,6 @@ changes the app to hide in a system tray, instead of opening a console window
 Delete the generated _.log_ file to get the instructions in step 3 again on the next launch.
 
 That's pretty much it. This is a very simple application. If you only have startup scripts it will terminate immediately after launch, if you have shutdown scripts it will put itself in the background until SteamVR exits so it can launch those scripts as well.
+
+# Requirements
+requires .net 6 to run
