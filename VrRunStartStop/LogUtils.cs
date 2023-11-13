@@ -1,39 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.Reflection;
 
-namespace OpenVRStartup
+namespace VrRunStartStop
 {
 
     static class LogUtils
     {
-        static List<string> cache = new List<string>();
+        static string logFile = "";
 
-        static public void WriteLineToCache(string line) {
-            string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
-            cache.Add($"{time} {line}");
+        static public void Init(string filePath)
+        {
+            logFile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" + filePath;
         }
 
-        static public void FlushCache() {
-            cache.Clear();
-        }
-
-        static public bool LogFileExists(string filePath) {
-            return File.Exists(filePath);
-        }
-
-        static public void WriteCacheToLogFile(string filePath, int lineLimit) {
-            var linesArr = File.Exists(filePath) ? File.ReadAllLines(filePath) : new string[0];
-            var linesList = linesArr.ToList();
-            linesList.AddRange(cache);
-            if (linesList.Count > lineLimit)
+        static public void WriteLine(string line) {
+            if (logFile == "")
             {
-                linesList.RemoveRange(0, linesList.Count-lineLimit);
-                linesList.Insert(0, $"(Log is limited to {lineLimit} lines and has been truncated)");
+                throw new Exception("log file path not set");
             }
-            File.WriteAllText(filePath, string.Join("\n", linesList));
-            FlushCache();
+            string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            using (StreamWriter w = File.AppendText(logFile))
+            {
+                w.WriteLine("[" + time + "] " + line);
+            }
+        }
+
+        static public void Clear() {
+            if (logFile == "")
+            {
+                throw new Exception("log file path not set");
+            }
+            File.WriteAllText(logFile, "");
+        }
+
+        static public bool LogFileExists() {
+            if (logFile == "")
+            {
+                throw new Exception("log file path not set");
+            }
+            return File.Exists(logFile);
         }
     }
 }
