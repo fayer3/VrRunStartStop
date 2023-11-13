@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="examples\restart_voicemeeter_audio_engine.cmd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="openvr_api.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
