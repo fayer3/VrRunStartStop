@@ -9,7 +9,7 @@ namespace VrRunStartStop
 
         static public void Init(string filePath)
         {
-            logFile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" + filePath;
+            logFile = Path.GetDirectoryName(AppContext.BaseDirectory) + "\\" + filePath;
         }
 
         static public void WriteLine(string line) {
